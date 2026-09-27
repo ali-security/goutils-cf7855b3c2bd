@@ -4,7 +4,17 @@ go:
   - 1.6
   - 1.7
   - 1.8
-  - tip
+  - 1.11
+
+env:
+  - GO111MODULE=off
+
+before_install:
+  - eval "$(gimme $TRAVIS_GO_VERSION)"
+  - go version
+
+install:
+  - go build -v .
 
 script:
   - go test -v
